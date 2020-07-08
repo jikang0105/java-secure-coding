@@ -1,0 +1,17 @@
+JDK - Java Development Kit(자바 개발 도구)
+ex) 자바를 개발하려면 본인의 운영체제에 맞는 JDK를 설치하고 시작한다.
+
+JRE - Java Runtime Enviornment(자바 실행 환경)
+ex) 각 운영체제에는 기본적으로 JRE가 설치되어 있다.
+
+JVM - Java Virtual Machine(자바 가상 머신)
+
+=============================================================
+
+"Write Once, Run Anywhere" 어떤 플랫폼, 어떤 응용체제든지 운용되도록 한다. (자바의 캐치프라이즈)
+JVM이 이것을 가능하도록 한다. 쉽게 이야기 하면 통역자같은 역할(자바어플리케이션과 운영체제 사이)
+이와 같은 기능을 인터프리터라고 한다.
+
+HelloWorld.java -> javac(java comfile) HelloWorld.java -> HelloWorld.class -> java HelloWorld(실행)
+
+* 컴파일 : 자바를 기계어로 바꾸는 일
