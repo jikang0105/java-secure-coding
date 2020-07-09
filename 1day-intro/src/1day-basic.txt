@@ -1,0 +1,99 @@
+** java se 1일차 수업 **
+1. jdk 설치 / 환경설정
+2. eclipse 설치 및 환경설정 
+3. java se 목차
+4. java basic
+	- 컴파일과 실행
+	- jdk > jre > jvm
+--------------------------
+	- jdk 설치를 위한 다운로드
+	https://www.oracle.com/kr/java/technologies/javase/javase-jdk8-downloads.html#license-lightbox
+	이동 후 윈도우 64bit용 jdk를 다운받아 설치하면 된다.
+	- jdk 설치 후 환결설정
+	C:\Program Files\Java\jdk1.8.0_251\bin 경로를
+	내 pc -> 속성 -> 고급 시스템 설정 -> 환경변수 -> path를 새로만들기로 추가하면 됨
+	위와 같이 경로를 설정하면 윈도우 실행창에서 자바프로그램을 컴파일하고 실행할 수 있다.
+ 
+ 2. eclipse IDE(통합 개발 환경(Integrated Development Environment)) 설치 및 환경설정
+ 	https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2020-06/R/eclipse-jee-2020-06-R-win32-x86_64.zip
+	Eclipse IDE for Enterprise Java Developers를 다운로드하여
+	압축해제 후 실행하면 된다.
+	(파일명이 너무 길면 압축해제시 오류가 생길 수도 있으므로 
+	파일명을 eclipse.zip 으로 면경 후 압축해제 한 후 eclipse.exe를 실행하면 된다)
+  
+	font 변경 설정 - 상단탭 window -> preferences -> font 로 검색 후
+	-> Colors and Font -> basic -> text font를 변경하면 된다.
+  
+	eclipse 단축키
+	실행 : ctrl + f11
+	sysout 후 ctrl + space 
+  
+ 3. java se 목차
+ 	- Java SE 환경설정 및 개발툴 설치, 설정
+ 	- OOP( Object-Oriented Programming ) 개념
+ 	- Java 기본문법 ( 클래스 , 변수, 메서드 , 생성자)
+ 	- OOP 주요개념 중 Encapsulation
+ 	- 제어문 ( 조건문, 반복문 )
+ 	- 배열( Array )
+ 	- OOP 주요개념 중 상속 ( Inheritance )
+ 	- OOP 주요개념 중 다형성 ( Polymorphism )
+ 	- static , final , abstract
+ 	- Interface
+	- Collection ( Set List , Map , Stack , Queue )
+	- Exception
+	- IO
+	- Thread
+	- Network
+	
+4. java basic
+	- 컴파일과 실행
+		컴파일 ( compile ) : 기계어( bytecode )로 구성된 class 파일을 생성
+		자바 컴파일 명령어 'javac 파일명' ex) javac HelloWorld.java
+		컴파일하면 HelloWorld.class 파일이 생성된다.
+		( 이클립스에서는 저장시 자동 컴파일 된다 )
+		
+		실행 ( runtime ) : java program을 실행 - class 파일을 번역( interpreter ) 해서 OS에 반영
+		'java 클래스명' ex) java HelloWorld
+		( 이클립스에서는 ctrl + f11 )
+	
+	HelloWorld.java 를 개발자가 작성 후 컴파일하면 HelloWorld.class가 생성되고
+	이를 실행하면 실행결과가 나온다.
+	
+	- jdk > jre > jvm
+	JDK ( Java Development Kit : 자바 개발 도구 )
+	JRE ( Java Runtime Environment : 자바 실행 환경 )
+	JVM ( Java Virtual Machine : 자바 가상 기계 )
+	-> 이 JVM이 OS(운영체제)와 Java Program 사이에서 통역 역할
+		생성된 class 파일을 번역하여 실행하는 주체다.
+		
+**kosta203기 백반 손재욱 카페지기**
+
+** 자기소개 **
+이름
+사는곳
+좋아하는 것
+자신의 장점
+살면서 인상적이었던 일
+이 곳에 오게 된 사연
+유머하나
+
+**2일차 주요목차**
+- 객체지향개념
+- 객체 Object
+- 클래스 Class
+- 변수 variable
+- 메서드 method
+- 접근제어자 access modifier  - public , private
+- Encapsulation
+- UML -> class diagram
+
+tip ) 다른 자바 프로젝트 import 하는 방법
+		Project Explorer 에서 마우스오른쪽 클릭 - import ->
+		import -> Existing Project into Workspace -> next ->
+		Browse 탭 누른 후 해당 프로젝트를 선택 
+		이 때 주의할 점은 아래 체크박스 중 Copy project into workspace
+		를 체크한 후 finish 하면 된다.
+ 
+	
+	
+      
