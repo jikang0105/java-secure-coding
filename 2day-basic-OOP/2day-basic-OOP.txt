@@ -1,0 +1,95 @@
+**2일차 주요목차**
+- 1일차 review 
+- 객체지향개념
+- 객체 Object
+- 클래스 Class
+- 변수 variable
+- 메서드 method
+- 접근제어자 access modifier  - public , private
+- Encapsulation
+
+*************************************************
+- 1일차 review
+	자바 개발 환경 설정 : jdk 다운 후 설치, jdk/bin을 시스템 환경변수에 등록
+	IDE 통합개발환경을 제공하는 이클립스 다운 후 실행
+	JDK > JRE > JVM
+	JVM : 자바 가상 머신 -> 클래스 파일(자바실행프로그램)을 OS에 통역, 즉
+										  자바프로그램을 실행 ( main method에서 시작 )
+			메모리 관리 ( 즉 C와 같이 개발자가 직접 메모리를 관리하지 않는다 )
+			-> Garbage Collection 가비지 컬렉션을 JVM이 한다.
+			
+- 객체지향개념 ( Object Oriented Concept )
+
+	소프트웨어 개발 방법론 -> 절차 지향 , 객체 지향
+	
+	소프트웨어 개발 모델 -> 폭포수 모델 ( waterfall model )
+										최근에는 애자일 ( agile ) 이 있다.
+	소프트웨어 개발 생명 주기 ( Life Cycle ) 
+	요구사항분석 -> 설계 -> 구현 -> 테스트 -> 운영(유지보수)
+	
+	객체지향개념은 분석 , 설계 , 구현 , 테스트 , 운영 전반에 대해 어떤 방식으로
+	소프트웨어를 만들 것인지에 대한 철학이다.
+	
+	객체지향이란? 객체를 기본 단위로 객체와 객체의 관계를 중심으로
+							분석, 설계, 구현하는 기법
+						
+- 객체 Object  
+	시스템의 기본 단위.  시스템을 구성하는 주요 사물이나 개념.
+	객체Object는 속성Attribute과 기능Operation으로 구성된다.
+
+- 클래스 Class
+	객체 생성을 위한 틀 or 설계도
+	-> 붕어빵틀( Class )로부터 붕어빵( Object or Instance )을 만든다.
+		건물 설계도( Class )로 부터 건물( Object or Instance )을 만든다.
+	
+	* 클래스와 객체의 관계 : 클래스는 객체 생성을 위한 틀이다.	
+ 	* 클래스로 객체를 만드는 것을 '실재화시킨다(Instantiation)'라고 한다.
+ 
+ - 인스턴스 변수 instance variable
+	속성 Attribute 라고도 불린다.
+	객체의 속성 정보를 저장하는 공간이다.
+
+- 메서드 method
+	기능 Operation 이라고도 불린다.
+	객체의 기능을 정의한다.
+	
+	자바 프로그램을 개발하는 순서는
+	클래스를 정의 -> 해당 클래스를 이용해 객체 생성 -> 메인 메서드가 있는 클래스를 실행한다.
+	
+	객체 생성코드
+	Person p = new Person();
+	위 코드를 분석해보면
+	Person : 클래스명
+	p : 객체 주소값을 저장하는 변수
+	= : 할당 assign
+	Person() : 생성자 Constructor
+	
+	보라색 = 예약어, 검은색 = class 명
+
+	메서드 문법
+	[접근제어자] void 또는 return type 메서드명(매개변수){
+		메서드 실행부
+		[ return ]
+	}
+	메서드 리턴값이 없으면 void를 명시하고 리턴값이 있으면 리턴값의 데이터 타입을 명시한다.
+	ex) public void m1(){
+	
+		}
+	ex2) public String m2(){
+			return "리턴값";
+			}
+			
+- 접근제어자 access modifier - public , private
+	자바에서는 클래스 ( 객체 ) 단위의 정보은닉 ( Information Hiding )을 위해
+	접근 제어자를 통해 접근에 대한 설정을 한다.
+	
+	접근 범위가 넓은 순서에서 좁은 순서로 나열
+	public > protected > default > private
+	public : 어느 곳에서도 접근이 가능하도록 설정하는 것.
+	protected : 같은 팩키지 내에서만 접근이 가능하다. 
+					  단, 상속시에는 다른 팩키지에서도 접근이 가능 하다.
+	default ( 따로 명시하지 않을 경우 디폴트 ) : 같은 팩키지 내에서만 접근이 가능하다.
+	private : 자신의 클래서에서만 접근이 가능하도록 설정하는 것.
+	
+	( protected 접근제어자는 상속을 공부한 후에 공부하기로 하자. )
+	
