@@ -1,0 +1,134 @@
+**3일차 주요목차**
+  - review
+  - Encapsulation
+  - setter / getter
+  - Constructor
+  - UML : Class Diagram
+  - Java DataType
+  	기본형( primitive data type )
+  	참조형( reference data type )
+  - 연산자 , 제어문 ( 조건문 , 반복문 )
+  -----------------------------------------------------
+  
+  클래스 구성요소
+  package step1; // 팩키지 - 클래스를 의미있는 디렉토리로 분류
+  
+  import step2.Car; // 임포트 - 다른 팩키지의 자원을 이용할때 사용
+  
+  // 클래스 정의 - 객체 생성을 위한 틀
+  public class Person{
+  		// 속성 or 인스턴스 변수 - 객체의 속성정보를 저장
+  		private String name;
+  		
+  		// 기능 or 매서드
+  		public void eat(){
+  			// 기능 구현부
+  		}
+  }
+~~~~~~~~~~~~
+
+// 위 Person class를 이용해 객체 생성 테스트를 하기위해
+// 메인 메서드가 있는 클래스를 정의
+package step3;
+
+// import 는 필요할 경우에만 명시하면 된다
+
+public class TestPerson{
+	// 메인메서드 : 프로그램 실행시 시작점 ( JVM이 실행한다 )
+	public static void main(String args[]){
+	// 객체 생성
+		Person p = new Person();
+	// 객체의 eat 메서드 호출
+		p.eat();
+	}
+}
+
+----------------------------------------------------------------
+
+- Encapsulation
+	"public interface, private implementation"
+	인터페이스는 공개하고, 구현부는 감춘다.
+	참고)  interface는 외부와 소통하는 역할을 의미한다.
+			  implementation는 해당 단위의 주요 알고리즘이다.
+			  
+	왜 사용하는가?
+	1. 정보은닉( Information Hiding )을 통한 보한성 향상을 위해
+	2. 사용자 편의성 향상을 위해 -> 사용하는 측에서는 서비스를 제공하는 측의
+	  구현부( implementation )를 몰라도 인터페이스만 알면 사용할 수 있다. ex) GUI
+	3. 유지보수성 향상을 위해 -> 서비스를 제공하는 측의 구현부가 변경되어도 
+	   사용자는 서비스를 이용하는데 문제가 없다.
+	   
+- setter / getter
+	setter : 객체의 속성(인스턴스변수) 정버롤 할당받는 메서드
+	ex)
+			public void setName(string name){
+				this.name = name;
+			}
+			
+		!! this 는 자바 예약어로서( keyword )로서 현재 객체를 가르키는 역할
+		this 를 이용해 매개변수 name과 인스턴스변수 name을 구분한다.
+
+	getter : 객체의 속성정보를 반환하는 메서드
+	ex)
+			public String getName(){
+				return name;
+			}
+			
+- Constructor( 생성자 )
+	: 객체 생성 시점에 실행되는 영역
+
+	객체 생성
+	ex) Person p = new Person();
+	Person : 클래스명 or 참조형 데이터타입
+	p : 참조변수
+	= : 할당 or 대입
+	new : 객체 생성시 사용하는 자바 예약어( keyword )
+	Person() : Constructor (생성자)
+	
+	Constructor(생성자) 특징
+	클래스에서 생성자를 명시하지 않으면 디폴트 생성자가
+	컴파일시에 자동으로 삽입된다.
+	개발자가 클래스에 생성자를 직접 명시할 경우에는
+	디폴트 생성자는 삽입되지 않는다.
+	생성자는 반드시 클래스명과 동일해야 한다.
+	메서드와는 다르게 리턴타입을 명시하지 않는다.
+	
+	생성자(Constructor)를 명시하는 이유?
+	객체 생성시 실행되는 생성자에 필요시 데이터를 전달하여
+	객체의 속성정보에 할당하고 객체 생성시 초기화 조건에 따라
+	특정 작업을 수행하도록 하기 위해서이다.
+	
+- UML : Class Diagram
+	UML ( Unified Modeling Language )
+	통합모델링언어
+	객체지향분석설계(OOAD : Object Oriented Analysis and Design ) 시
+	사용하는 표준화된 기술
+	
+	Class Diagram 을 StarUML tool 을 이용해 작성해본다.
+	
+- Java DataType
+	기본형(primitive data type) : java에서 기본적으로 제공하는 데이터타입
+						1byte		2byte		4byte		8byte
+		정수형		byte			short		int			long
+		실수형										float			double		
+		문자형						char
+		논리형		boolean
+	
+	참조형(reference data type)
+	: 자바 클래스는 주로 참조형 데이터 타입이 된다.
+	객체를 참조하는 주소값을 저장하는 변수를 참조변수라고 하고 
+	참조변수(reference variable)의 데이터 타입을 참조형 데이터 타입이라고 한다.
+	
+	JVM 은 메모리를 관리할 때
+	객체는 Heap 메모리 영역에 저장하고,
+	해당 객체의 메모리 주소값은 Stack 영역에 저장한다.
+	생성된 객체에 대한 접근은 Stack 영역에 저장된 주소값을 이용한다.
+	
+**4일차 목차**
+- 연산자
+- 제어문( 조건문, 반복문 )
+- 객체 초기화 단계
+- Variable Scope ( 변수 범위 )
+- relationship : has a relationship ( aggregation )
+	
+	
