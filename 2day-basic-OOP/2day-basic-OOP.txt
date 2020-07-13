@@ -6,7 +6,6 @@
 - 변수 variable
 - 메서드 method
 - 접근제어자 access modifier  - public , private
-- Encapsulation
 
 *************************************************
 - 1일차 review
@@ -92,4 +91,14 @@
 	private : 자신의 클래서에서만 접근이 가능하도록 설정하는 것.
 	
 	( protected 접근제어자는 상속을 공부한 후에 공부하기로 하자. )
+	
+	**3일차 주요목차**
+	- Encapsulation
+	- setter / getter
+	- Constructor
+	- UML : Class Diagram
+	- Java DataType
+	  기본형( primitive data type)
+	  참조형( reference data type)
+	- 연산자 , 제어문 ( 조건문, 반복문 )
 	
