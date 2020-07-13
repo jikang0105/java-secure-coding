@@ -1,0 +1,22 @@
+**4일차 목차**
+- 연산자
+- 제어문 ( 조건문 , 반복문 )
+- Variable Scope ( 변수 범위 )
+- relationship : has a relationship
+
+---------------------------------------------------
+- 제어문 ( 조건문 )
+	java 의 조건문에는 if , else if , else 가 있고
+	switch case 구문이 있다.
+	
+- 제어문 ( 반복문 )
+	for
+	while
+	do while 구문이 있다.
+	
+**5일차 목차**
+- Variable Scope ( 변수 범위 ) - instance variable, local variable
+- 객체 초기화 단계
+- relationship : 
+  association > aggregation > composition
+- Array ( 배열 )
