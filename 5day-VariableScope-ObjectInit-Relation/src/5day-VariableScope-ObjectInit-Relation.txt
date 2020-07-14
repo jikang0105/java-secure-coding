@@ -1,0 +1,69 @@
+**5일차 목차**
+- Variable Scope( 변수 범위 ) - instance variable , local variable
+- 객체 초기화 단계
+- relationship :
+	association > aggregation > composition(7/15)
+
+--------------------------------------------------
+
+- Variable Scope ( 변수 범위 ) - instance variable , local variable
+
+	Variable(변수)란? 데이터를 저장하는 공간 ( 변경 가능한 특성 )
+	
+	Java Variable(변수) 종류
+	1. 인스턴스 변수 ( Instance Variable )
+		: 객체 속성 정보를 저장, Heap 영역에 저장
+		  클래스 레벨에서 선언, 초기화 된다.
+		  
+	2. 지역 변수 ( Local Variable )
+		: 임시변수라고도 불림. 메서드 또는 새성자에 선언, 초기화되며
+		해당 메서드가 실행되는 시점에서만 메모리에 저장되었다가 해제된다.
+		Stack 영역에 저장
+		
+	3. 클래스 변수 ( Class Variable or Static Variable or 전역 변수 )
+		: 이후 공부 예정
+	
+	참고 ) java 주요 메모리 영역
+		1. Stack 영역 : 지역 변수(Local Variable)가 저장된다.
+		2. Heap 영역 : 인스턴스 변수(Instance Variable)가 저장된다.
+		3. Class(Method) area 영역 : static 변수가 저장된다.(이후 공부 예정)
+	
+	왜 인스턴스 변수와 지역 변수를 구분해서 사용하는가?
+	인스턴스 변수는 객체의 속성 정보가 저장되어 정보를 계속 유지하고자 할때 사용하고
+	지역변수는 해당 메서드(기능)를 실행할 때만 임시로 사용하고자 할때 쓴다.
+	(메모리를 효율적으로 사용하기 위해서)
+	
+	변수별 초기화 특성
+	- 인스턴스 변수(Instance Variation)는 선언만 해도 기본 초기화가 된다.
+	예) String 은 참조형 데이터 타입이므로 null, int 는 정수형이므로 0,
+	   boolean은 논리형이므로 false.
+	- 지역변수는 반드시 명시적 초기화가 필요하다.
+	예) int i; sysout(i); // compile error 지역변수는 명시적 초기화가 필요하다.
+	
+- 객체 초기화 단계
+	객체의 속성을 저장하는 인스턴스 변수는 선언만 해도 기본(디폴트) 초기화가 된다.
+	정수형 -> 0, 실수형 -> 0.0, 논리형 -> false
+	
+	객체 초기화 단계
+	1) 인스턴스 변수의 기본 초기화
+	2) 인스턴스 변수의 명시적 초기화
+	3) 생성자에 의한 초기화
+	
+- relationship :
+	association > aggregation > composition
+	객체(클래스)의 관계 중
+	association(연관) : use a 관계 예) 사람이 렌트카를 이용하다
+	aggregation(집합) : has a 관계 예) 사람이 스마트폰을 가지고 있다
+	composition(구성) : consist of 관계 예) 사람이 뇌를 가지고 있다
+	
+	위 관계를 starUML의 class diagram 으로 표현하고 이를 바탕으로 코드를 구현해본다.
+	
+------------------------------------------------------
+	
+**6일차 목차**
+- review
+- relationship : composition ( consist of, 구성 )
+- Array
+	기본형 데이터를 저장하는 배열
+	참조형 데이터를 저장하는 배열
+- Inheritance ( 상속 )
