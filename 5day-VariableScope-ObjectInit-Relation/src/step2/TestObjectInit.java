@@ -15,7 +15,7 @@ public class TestObjectInit {
 		System.out.println(car.isFlag());
 		// price 는 실수형이므로 기본적으로 0.0으로 초기화 된다.
 		System.out.println(car.getPrice());
-		// model 은 문자형이므로 기본적으로 null로 초기화 된다.
+		// model 은 참조형이므로 기본적으로 null로 초기화 된다.
 		System.out.println(car.getModel());
 	}
 }

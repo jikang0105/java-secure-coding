@@ -1,0 +1,55 @@
+**6일차 목차**
+- review
+- relationship : composition
+- Array
+	기본형 데이터를 저장하는 배열
+	참조형 데이터를 저장하는 배열
+
+------------------------------------
+
+- relationship : composition ( consist of, 구성 )
+	UML(통합모델링언어)중 Class Diagram 의  relation(관계)
+	association(연관) > aggregation (집합) > composition(구성)
+	예) 자동차는 엔진을 가지고 있다.
+	위의 예처럼 자동차가 생성되기 위해서는 엔진을 필수적이므로 가장 긴밀한 관계
+	(생명주기 LifeCycle를 함께 한다) 로 표현한다.\
+	
+- Array : 다수의 데이터를 효과적으로 관리하기 위해 사용한다.
+	하나의 배열 객체에 다수의 데이터를 저장한 후 검색, 수정, 삭제, 삽입 할 수 있다.
+	
+	1) 기본형 데이터를 저장하는 배열
+	// 배열 객체 선언
+	int[] 배열 표시, age 배열 변수
+	int [] age;
+	// 배열 객체 생성
+	age = new int[3];	// 3은 배열 요소의 공간 길이 수( 방을 3개 반든다 )
+	// 배열에 요소 할당
+	age[0] = 22; // 배열 요소 번지수는 0부터 시작
+	age[1] = 11;
+	age[2] = 44;
+	
+	배역 객체 속성 length - > 배열 길이를 반환  ex) age.length
+	
+	2) 참조형 데이터를 저장하는 배열
+	// 배열 선언
+	Person p[]; // Person 객체들을 저장하는 배열
+	// 배열 생성
+	p = new Person[3]; // 배열 방 길이 3
+	// 배열 할당
+	p[0] = new Person("아이유", 28);
+	...
+	p 배열 첫번째 요소의 이름을 출력
+	System.out.println(p[0].getName());
+	
+---------------------------------------
+
+**7일차 목차**
+- Overloading( 메서드 오버로딩, 생성자 오버로딩 )
+- Inheritance ( 상속 )
+	extends
+	UML ( Class Diagram -> generalization )
+	super
+	메서드 오버라이딩( Method Overriding )
+	toString()
+- Polymorphism ( 다형성 )
+	Object Casting
