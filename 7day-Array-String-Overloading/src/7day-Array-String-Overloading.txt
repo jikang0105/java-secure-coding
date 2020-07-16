@@ -1,0 +1,44 @@
+**7일차 목차**
+- Array
+- String API
+- Overloding ( 메서드 오버로딩, 생성자 오버로딩 )
+- Ingeritance ( 상속 )
+	extends
+	UML ( Class Diagram -> generalization )
+	super
+- Polymorphism ( 다형성 )
+	Object Casting
+	
+---------------------------------------------------
+
+	library 라이브러리 : 재사용 가능한 클래스 또는 기능의 모음
+	API ( Application Programming Interface )
+	: 어플리케이션 개발의 편의를 위해 제공하는 인터페이스
+	
+----------------------------------------------------
+	
+- Overloading (메서드 오버로딩, 생성자 오버로딩 )
+	메서드 (or 생성자) 오버로딩이란 동일한 이름의 메서드 명(생성자)으로
+	다양한 매개변수(순서, 타입, 개수)를 정의하는 프로그래밍 기법으로
+	사용자 편의성을 증대하는것을 목적으로 한다.
+	
+- Inheritance ( 상속 )
+	상속은 객체지향의 주요 개념 중 하나
+	 why? 부모의 멤버(속성, 기능)을 자식이 물려 받아 사용하는 것.
+	 -> 재사용성이 증대된다(생산성 향상에 기여한다)
+	 계층 구조 형성을 통한 다형성(Polymorphism) 적용 환경을 마련.
+	 
+	syntax(문법)
+	class 자식클래스명 extends 부모클래스명 {}
+	
+**8일차 주요목차**
+
+	super
+	메서드 오버라이딩(Method Overriding)
+	toString()
+- Polymorphism(다형성)
+	Object Casting
+	
+	
+	
+	
