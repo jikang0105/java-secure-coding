@@ -1,0 +1,78 @@
+**8일차 주요목차**
+- Inheritance
+	Access Modifier(접근 제어자)
+	super
+	메서드 오버라이딩(Method Overriding)
+	toString()
+	Polymorphism(다형성)
+	Object Casting
+	
+--------------------------------------
+- OOP or OOAD (Analysis and Design 분석설계)
+	Object-Oriented-Programming 객체 지향 프로그래밍
+	객체를 시스템의 기본단위로 상정하고
+	객체와 객체의 관계를 중심으로 분석설계하는 기법
+	
+	Object : 시스템의 기본 단위, 속성과 기능으로 구성
+		참고) 속성 : attribute, variable, field
+			 기능 : operation, method, function
+			 
+	Class와 Object의 관계
+	-> 붕어빵특과 붕어빵, 클래스는 객체의 틀이다.
+	
+	객체지향의 주요개념
+	Encapsulation -> "public interface, private implementation"
+					  인터페이스는 공개하고 구현부는 감춘다.
+					  
+- Inheritance (상속)
+	-> 부모클래스(객체)의 멤버를 물려받아 재사용
+		장점 : 생산성 샹항
+		계층구조 형성을 통한 다형성 적용환경을 제공
+		
+	부모클래스 -> super class
+	자식클래스 -> sub class
+	
+- 접근제어자( Access Modifier )
+	public > protected > default > private
+	
+	public : 어디서나 접근 가능
+	protected : 동일한 팩키지 내에서만 접근 가능하나 상속 관계시에는
+				어디서나 접근 가능
+	default : 동일한 팩키지 내어서만 접근 가능
+	private : 동일한 클래스 내에서만 접근 가능
+	
+- super keyword
+	참고 ) this keyword : 현재 객체를 가리킨다.
+	
+	super keyword는 부모 객체를 가리킨다.
+	super(); = 생성자의 첫라인에 명시되는 코드로 부모 생성자를 실행하여 부모 객체를 생성하는 역할이다.
+				별도로 super(); 를 명시하지 않으면 자동으로 삽입된다.
+				
+- UML (통합 모델링 언어) 중 Class Diagram 상에서
+	상속관계는 generalization ( is a relationship ) 으로 표현한다.
+	참고) 	association 연관 ( use a )
+			aggregation 집합 ( has a )
+			composition 구성 ( consist of )
+			
+	조별 토론 ) 
+	조별 토의를 통해 class diagram을 만들어서 카페에 공유해보자
+	요구사항
+	엔지니어는 사원번호 empNo, 사원명 name, 월급 salary, 주기술 skill의 정보로 구성된다.
+	매니저는 사원번호, 담당부서명 department, 월급, 사원명으로 구성된다.
+	비서는 사원번호, 월급, 사원명, 상관명 nameOfBoss으로 구성된다.
+	그 외 사내 다양한 직종이 있다고 가정한다.
+	
+- 메서드 오버라이딩 (Method Overriding)
+	: 부모 메서드를 자식에 맞게 구현부를 재정의하는 기법
+	
+참고) 메서드 오버로딩 - 동일한 이름의 메서드를 매개변수를 다양하게 하여 여러개 정의하는 기법.
+
+--------------------------------------------------------------
+
+**9일차 수업목차**
+
+- java.lang.Object
+- toString()
+- !!!!!!!!!! Polymorphism ( 다형성 )
+- Object Casting
+	
