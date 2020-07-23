@@ -1,0 +1,80 @@
+** 11일차 주요목차**
+- static
+- final
+- abstract
+- interface
+
+--------------------------------------
+
+- static : 별도의 객체 생성 없이 메모리에 로드(적재)된다
+		프로그램 시작 첫시점에 클래스의 로딩이 되고
+		이때 static 정보가 적재된다.
+		
+		static member(변수, 메서드)를 class의 member라고 한다.
+		참고) object member 는 instance variable 과 non-static method이다.
+		
+		static은 붕어빵틀에 관련이 있다.
+		class(붕어빵틀)		object(붕어빵)
+		
+		ex) Person.eat(); -> 클래스명.메서드명
+			eat()는 static method이다.
+		
+	java program 실행단계
+	i. compile된 class에 실행을 명령하면
+	ii. class loading 단계에서 method area(or class area)에 
+	  클래스 정보(package, method)와 static 정보가 적재된다.
+	iii.  class 검증단계(문제가 있을때 에러를 발생)
+	iV. 실행단계( interpretor or runtime )
+		main 실행 -> 필요시 객체 생성
+		-> 객체를 생성할 때 Object member( 즉 instance variable 과 method )가
+		초기화되고 사용할 수 있다.
+		
+	static 과 non-static ( Object ) 접근
+	static에서 non-static으로 직접 접근은 불가능하다(객체 생성이 필요하다)
+	non-static에서 static으로 직접 접근은 가능하다.
+	
+	
+- final 제어자
+	final 상수 = 재할당 불가 ( C++의 const와 같은 역할) ex) final int PRICE = 1; 이후 재할당 불가
+	final 메서드 = 자식이 메서드 오버라이딩 불가
+	final 클래스 = 상속 불가
+	
+	참고) 자바 네이밍룰 관례 camecase 
+		팩키지명은 소문자 package step1.exam;
+		클래스명은 대문자로 시작하고 합성어의 첫글자는 대문자, 나머지는 소문자 BankService
+		변수명은 소문자로 시작하고 합성어 첫글자는 대문자 studentName
+		메서드명은 소문자로 시작하고 합성어 첫글자는 대문자 findPersonByTel
+		상수명은 대문자로 구성하고 합성어 앞에 ' _ '로 구성 MEMBER_PASS
+		
+- abstract
+	1) abstract class : abstract 로 선언된 class는 직접 객체화 될 수 없다.
+	ex) abstract class Person{}
+		위 코드를 이용해 Person p = new Person(); // error
+		
+	abstract class 를 사용하는 이유는 자식클래스(subclass)에게 유용한 멤버(속성과 기능)를 물려주고
+	스스로는 객체화 되지 않겠다고 선언하는 역할을 한다.
+		
+		
+	2) abstract method : abstract 로 선언된 메서드는 자식클래스에서 반드시 메서드 오버라이딩 or 구현 해야한다.
+						구현하지 않으면 자신도 abstract class로 선언되어야 한다.
+						abstract method는 구현부가 존재하지 않고 선언만 한다.
+						클래스내에서 abstract method가 하나이상 존재하면
+						그 클래스는 abstract class로 선언되어야 한다.
+						ex) public abstract void study();
+						
+		abstract method를 명시하는 이유는 상속받은 자식 클래스에게 기능구현을 강제하기 위해서이다.
+		
+- 디자인 패턴(설계 패턴)
+	i) Template Method Design Pattern : 부모 클래스에서 작업처리의 흐름을 정의하고
+										  자식클래스에서 작업처리의 내용을 구체화하는 패턴
+										  
+										 
+-----------------------------------------------------------------------------------------------------
+
+** 12일차 주요목차**
+- interface
+- java.util.Collection
+	Set
+	List
+	
+	
