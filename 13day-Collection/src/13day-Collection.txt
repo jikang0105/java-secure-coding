@@ -1,0 +1,8 @@
+** 13일차 주요목차**
+- java.util.Collection
+	Set, List
+-----------------------------
+- Set 인터페이스 계열 : 중복을 서용하지 않는다.
+	구현클래스로는 TreeSet -> 정렬기능
+				 LinkedHashSet -> 입력순서를 기억	
+	

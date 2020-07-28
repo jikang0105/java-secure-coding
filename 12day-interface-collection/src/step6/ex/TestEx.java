@@ -12,7 +12,7 @@ public class TestEx {
 		service.add(new Engineer("19", "정지윤", 900, "spring"));
 		service.add(new Employee("20", "진용현", 600));
 		service.add(new Employee("21", "이동욱", 650));
-		System.out.println("******* 사원등록끝**********");
+		System.out.println("******* 사원등록 끝**********");
 		System.out.println("******* 전체사원정보 ********");
 		service.printAll();
 		/*
@@ -22,7 +22,7 @@ public class TestEx {
 		 * empId : 20 , name : 이동욱 , salary : 650
 		 */
 		System.out.println("********** 사원아이디로 검색**********");
-		Employee e = service.findById("20");
+		Employee e = service.findById("21");
 		System.out.println(e);
 		// empId : 20, name : 진용현 , salary : 600
 		
@@ -30,7 +30,8 @@ public class TestEx {
 		System.out.println("********* 삭제 ********");
 		service.removeById("19");
 		  service.printAll();
-		  /*  empId : 17 , name : 김수민 , salary : 700 , department : 기획부 
+		  /*
+		   *   empId : 17 , name : 김수민 , salary : 700 , department : 기획부 
 		   *   empId : 19 , name : 정지윤 , salary : 900 , skill : spring  
 		   *   empId : 21 , name : 이동욱 , salary : 650 
 		   */

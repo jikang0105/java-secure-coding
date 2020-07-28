@@ -16,15 +16,13 @@ public class CompanyService {
 	public void printAll() {
 		for(int i = 0; i < index; i++) {
 			System.out.println(array[i].toString());
-		}
-		
+		}		
 	}
 	
 	public Employee findById(String empId) {
 		for(int i = 0; i<index; i++) {
 			if(array[i].getEmpId().equals(empId)) {
-				return array[i];
-				
+				return array[i];				
 			}
 		}
 		return null;
@@ -32,8 +30,7 @@ public class CompanyService {
 
 	public void removeById(String empId) {
 		for(int i = 0; i<index; i++) {
-			if(array[i].getEmpId().equals(empId)) {
-				
+			if(array[i].getEmpId().equals(empId)) {				
 				for(int j = i + 1; j < index; j++) {
 					array[i] = array[j];
 				}				
