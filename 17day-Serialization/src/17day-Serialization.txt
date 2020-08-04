@@ -1,0 +1,31 @@
+** 17일 주요 목차 **
+- 객체 직렬화 ( Object Serialization )
+ 
+ 
+ --------------------------------------
+ - 객체 직렬화 (Object Serialization )
+ 	: 메모리 상에 있는 객체정보를 외부로 전송할 수 있는 상태로 만드는 것
+ 	
+ - 객체 직렬화를 위해서는 해당 객체는 java.io.Serializable interface 를 implements 해야한다
+ 	즉, 해당 객체는 Serializable 계층구조의 하위 객체이어야 한다.
+ 	( 아니면 실행시 jvm이 java.io.NotSerializableException을 발생시킨다. )
+ 	
+ 	객체직렬화시 사용할 스트림
+ 	ObjevtOutputStream : writeObject(Object o)
+ 	
+ 	객체역직렬화시 사용할 스트림
+ 	ObjectInputStream : readObject() : Object
+ 	
+ 	transient keyword : 변수 앞에 지정하는 modifier
+ 						객체 직렬화 대상에서 해당 인스턴스 변수의 정보를 제외할 때 사용
+ 	
+ 	serialVersionUID : 직렬화 대상 글래스 ( Serializable 을 implements하는 클래스) 들은
+ 						개별 클래스마다 JVM에 의해 자신의 serialVersionUID를 가진다.
+ 						이 때 클라스의 정보 (인스턴수 변수)가 변경되면 다시 해당클래스의
+ 						serialVersionUID가 재할당된다.
+ 						이 경우 클래스의 정보가 업데이트 될 경우 기존의 클래스로 직렬화된 정보를
+ 						역직렬화하여 입력받으려 할 경우 Exception이 발생한다.
+ 						-> 클래스 업데이트에 따른 직렬화와 역직렬화의 호환성을 위해 serialVersionUID를
+ 						직접 명시할 것을 권장한다. 
+ 	
+ 	
