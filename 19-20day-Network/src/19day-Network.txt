@@ -1,0 +1,77 @@
+** 19일차 Network **
+- java 기반의 TCP/IP 네트워크 프로그래밍
+- java.net.* 팩키지에 주요 클래스들이 있다.
+
+- Protocol : 통신규약(약속)
+- TCP/IP 란 인터넷 상의 통신 규약
+	TCP ( Transmission Control Protocol ) : 전송 제어 프로토콜
+											  데이터 전달 보증 -> 신뢰성이 높다.
+	IP ( Internet Protocol ) : ip address(전화번호와 유사)로 호스트 주소를 지정한다.
+							  자신의 ip는 cmd창에서 ipconfig로 확인한다.
+							  192.168.0.119
+							  참고) DNS (Domain Name Service)
+							  		: www.daum.net -> ip와 연결되는 Domain Name이다.
+			
+-Port : 가상의 연결단위, 서버의 서비스 번호(입구)
+		ex) http://127.0.0.1:8080
+			protocol :// ip : port
+			
+-Socket : 소켓이란 네트워크 연결의 양 끝단위(end - point)로서
+		통신을 하기 위한 인터페이스를 제공한다(ex - 전화기와 유사)
+		socket.getInputStream() , socket.getOutputStream() 등을 제공한다.
+		
+-ServerSocket : 서버를 구현하기 위한 필수 객체이다.
+				생성시 서비스 포트를 지정하고, 주요 기능인 accept()를 명시해야한다.
+				accept() 메서드는 클라이언트 접속을 대기하다가 클라이언트가 접속하면
+				실행되고 실행 후 반환되는 일반 Socket 객체는 접속한 해당 클라이언트와
+				통신을 위해 제공된다.
+				
+	step1 서버는 클라이언트의 접속을 대기하다 클라이언트가 접속하면 ct에게 메세지를 전송하고
+			클라이언트는 전송받은 메세지를 자신의 콘솔에 출력하는 예제
+			
+			Server												Client
+			
+			ServerSocket을 생성 (대표전화)						Socket(serverIp, port) 생성
+			accept() : Socket (고객과 통신할 객체)
+			socket.getOutputStream() < PrintWriter			socket.getInputStream() < InputStreamReader < BufferedReader
+			pw.println(메세지);									br.readLine(); // 서버의 메세지를 입력받는다.
+			close();												close();
+			
+			
+	step2 서버는 접속을 대기하다가 클라이언트가 접속하여 메세지를 보내면 그 메세지를 입력받아
+			자신의 콘솔창에 출력하고 다시 대기한다. 클라이언트는 서버에 접속하여 메세지를 전송하고 종료한다.		
+	
+			Server												Client
+			ServierSocket을 생성(대표전화)						Socket(serverIp, port)
+			accept() : Socket
+			socket.getInputStream()							socket.getOutputStream()
+			
+			close();												close();
+			
+	step3 메아리 서버, 클라이언트 구성
+			서버는 클라이언트가 보낸 메세지를 입력받아 자신의 콘솔에 출력하고 다시 그 메세지를 클라이언트에게
+			보내는 역할을 지속적으로 한다. 클라이언트는 스캐너로 콘솔에서 서버에 보낼 메세지를 입력받아 서버로 출력하고
+			서버가 보낸 메세지를 다시 입력받아 자신의 콘솔에 출력하는 작업을 지속적으로 한다.
+			
+			실행 예) 
+			클라이언트 프로그램												서버		
+																			** 메아리 서버 실행 **
+			서버에 보낼 메세지 : 안녕 메아리 서버 enter					127.0.0.1님 메세지 : 안녕 메아리서버
+			서버에서 온 메세지 : 안녕 메아리 서버 *server*
+			Server												Client
+			ServerSocket
+			
+	step4 다수의 클라이언트에게 지속적으로 메아리 서비스하는 서버 구축하기
+			클라이언트는 step3 또는 review.TestClient를 그대로 사용하면 된다.			
+			다수의 클라이언트에게 지속적으로 서비스하기 위해서는 서버측에 멀티스레드가 필요하다.
+			클라이언트가 접속할 때 서버는 접속한 클라이언트에 대응되는 소켓을 accept()로 반환받고 
+			클라이언트와 실제 통신할 ServerWorker Thread 생성시에 생성자에 해당 소켓을 할당한다.
+			이렇게 ServerWorker Thread 생성하고 start() 시키는 역할까지가
+			MultiServer가 할일이다.
+			
+			ServerWorker(implements Runnable)는 생성자로부터 할당받은 소켓을 이용해
+			클라이언트와 통신을 하면 된다. ( 클라이언트 메세지를 입력받아 콘솔에 출력하고 다시 클라이언트로
+			그 메세지를 출력하는 일을 반복한다. )
+			
+			서버측에 필요한 클래스는 MultiServer와 ServerWorker class이다.
+			
