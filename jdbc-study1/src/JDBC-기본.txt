@@ -1,0 +1,21 @@
+** JDBC 기본 개념 정리 **
+JDBC - Java Database Connectivity
+		자바 어플리케이션과 데이터베이스 연동을 위한 기술 ( API )
+		
+JDBC 계발단계 ( 실행단계 )
+1. Driver loading - 사용하는 데이터베이스(오라클)에서 지원하는 드라이버(ojdbc6.jar)를
+					로딩하여 데이터베이스와 자바어플리케이션 연동을 위한 기본정보를
+					메모리에 적재한다
+
+2. Connection - 데이터베이스와의 연결, 반환되는 Connection 객체를 이용해 SQL을 실행하게 된다.
+
+3. PreparedStatment - 데이터베이스와 소통을 위한 SQL을 실행할 수 있는 메서드를 지원한다.
+						? -> 할당 : pstmt.setString(1, "");
+									pstmt.setInt(2, 정수)
+						
+4. SQL 실행
+	1) select 시에는 결과를 반환받아야 하므로 executeQuery() : ResultSet
+	2) insert, delete, update 일때는 executeUpdate() : int -> 영향을 준 row 수
+	
+5. close
+

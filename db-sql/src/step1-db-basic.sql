@@ -78,3 +78,20 @@ INSERT INTO member(id, password, name, address) VALUES('mybatis', 'di', '양성식'
 SELECT name FROM member WHERE address = '뉴욕';
 UPDATE member SET address = '워싱턴' WHERE address = '뉴욕';
 SELECT * FROM member;
+
+COMMIT -- 실제 데이터베이스에 반영(작업 정보를 저장)
+ROLLBACK -- 커밋 이전의 모든 작업을 취소하고 되돌리는 명령어
+
+-- 기본 SQL 리뷰
+
+INSERT INTO member(id, password, name, address) VALUES('ebs', 'abcd', '팽수', '양재');
+
+-- member 테이블에서 name이 팽수이고 address가 양재인 회원의 id를 조회
+SELECT id FROM member WHERE name = '팽수' AND address = '양재';
+
+SELECT * FROM member;
+
+-- member 테이블의 회원 주소 중 양재인 회원의 조소를 판교로 업데이트
+UPDATE member SET address = '판교' WHERE address = '양재';
+
+SELECT * FROM member;
