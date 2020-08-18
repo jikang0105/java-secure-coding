@@ -119,3 +119,6 @@ SELECT name, maker, price, price - 200 AS 할인가 FROM product WHERE maker = '오�
  * 월요일에 공부할 내용
  *  Oracle SEQUENCE - 자동으로 유일값 발급
  */
+
+
+SELECT id, name, maker, price FROM product;

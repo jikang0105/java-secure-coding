@@ -5,17 +5,18 @@
 -- SQL 한줄 주석
 
 /*
- *  SQL ( Structured Query Language ) : database 제어하는 언어
+ *  SQL ( Structured Query Language ) : 데이터를 정의하고, 조작, 제어하는 언어이다.
  * 
  *	DDL, DML, DCL
- *	1. DDL ( Data Definition Language )
+ *	1. DDL ( Data Definition Language : 데이터 정의어)
  * 		: CREATE 생성 , DROP 삭제, ALTER 수정
- *	2. DMA ( Data Manipulation Language )
+ *	2. DMA ( Data Manipulation Language : 데이터 조작어)
  * 		: INSERT 삽입, DELETE 삭제, UPDATE 수정, SELECT 검색
  *		CRUD ( CREATE, READ, UPDATE, DELETE )
  *				INSERT SELECT UPDATE DELETE *	
- *	3. DCL ( Data Control Language )
+ *	3. DCL ( Data Control Language : 데이터 제어어 )
  * 		: COMMIT 실제 DB에 반영하다, ROLLBACK 작업을 취소하고 되돌리다.
+ * 		  GRANT 권한부여, REVOKE 권한취소
  *	
  *	TABLE - 데이터를 저장하는 공간
  *	COLUMN - 속성( attribute )
