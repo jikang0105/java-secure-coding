@@ -1,0 +1,48 @@
+**요구사항**
+	- 사용자는 계좌 개설이 가능하다
+	- 계좌 개설시 계좌번호, 계좌주명, 비밀번호, 잔액정보가 저장되어야 한다. 생성자 full 매개변수
+	- 최초 계좌 개설시에는 초기 납입액 1000원 이상이 되어야 한다. 
+	- 계좌번호는 유일해야하고 시스템에서 자동발급되도록 관리한다. 
+	- 잔액확인은 계좌번호가 존재해야하고 비밀번호가 일치해야한다. 생성자 매개변수 2개 bankNo password
+	
+	- 입금액, 출금액, 계좌이체액은 모두 0원을 초과해야한다. 
+	- 입금시에는 계좌번호, 비밀번호가 일치해야한다.
+	
+	- 출금시에는 계좌번호, 비밀번호, 잔액확인 절차가 필요하다.
+	- 계좌이체시에는 송금자 및 수금자의 계좌가 존재해야하고
+	- 이체액은 0원을 초과해야하며 송금자의 비밀번호가 일치해야한다.
+	- 또한 송금자의 잔액 확인이 필요하다.
+	UPDATE BANK SET BLANCE= BLANCE+? WHERE BANKNO=?
+	IF(BLANCE < 출금) THROW
+**요구분석**
+
+	- 주요기능
+	계좌 개설(사용자(1, 2)), 잔액확인
+	
+**설계**
+
+	데이터베이스 - SQL DDL : CREATE, 제약조건, 데이터타입
+	어플리케이션 -> UML(Class Diagram)
+					필요한 클래스 추출 -> 주요메서드 설계
+					
+	분석, 설계 소요시간 -> 12시 20분까지
+	구현 소요시간 ->
+					
+//뱅크 테이블				
+CREATE TABLE BANL(
+BANK_NO NUM PRIMARY KEY,
+NAME VARCHAR2(50) NOT NULL,
+PASSWORD VARCHAR2(100) NOT NULL,
+MONEY NUM DEFUALT 0
+)
+//시퀀스 뱅크
+CREATE SEQUENCE bank_seq;
+
+//계좌생성
+INSERT INTO BANK(BANKNO,NAME,PASSWORD,MONEY)VALUES(bank_seq.nextval,?,?,?)
+if(money>1000){} throw exception 1000원 이상 초기입금해주시길 바랍니다.
+pstm.setint(3,moeny)
+
+//잔액조회
+SELECT NAME, MONEY FROM BANK WHERE BANKNO=? AND PASSWORD =?
+ResultSet = null throw Exception 
