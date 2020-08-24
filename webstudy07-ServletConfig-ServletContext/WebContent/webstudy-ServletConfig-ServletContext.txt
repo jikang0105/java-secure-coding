@@ -1,0 +1,15 @@
+** ServletConfig와 ServletContext **
+
+	ServletConfig : 개별 서블릿이 실행하는 데 필요한 설정 정보를 제공한다
+					개별 서블릿 객체 당 하나씩 생성된다.
+					(web container에 의해 init() 메서드 실행시 전달됨 )
+					초기 파라미터( init-param ), ServletContext객체의 주소값등이
+					ServletConfig 객체에 저장된다.
+					
+					ServletConfig의 init-param을 적절히 이용하면 하드코딩 요소를 배제하고
+					코드와 설정을 분리해 유지보수성이 향상될 수 있다.
+					
+	ServletContext : 웹 어플리케이션 전역에서 사용할 수 있는 객체로서 웹 어플리케이션 내의 모든 서블릿과 jsp가 공유할 수 있는 정보이다.
+					  웹 어플리케이션 시작시에 생성되고 종료시에 소멸된다.
+					  대표적인 메서드로는 getInitParameter(name), setAttribute(name, value),
+					 getAttribute(name) : Object 등이 있다.
