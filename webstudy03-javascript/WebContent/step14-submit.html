@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form submit</title>
+<script type="text/javascript">
+
+	function checkForm(){
+		var idComp=document.getElementById("userId");
+		if(idComp.value!==""){
+		alert("서버로 전송합니다.");
+		}else{
+			alert("아이디를 입력하세요");
+			// 전송하지 않기 위해서 return false를 명시한다.
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<!-- action 은 처리할 서버프로그램 url을 명시한다
+	onsubmit = "return function()"의 경우에
+	해당 function이 false를 리턴하면 전송되지 않고
+	true나 리턴하지 않으면 기본 submit 속성으로 전송된다.
+ -->
+<form action="FindServlet" onsubmit="return checkForm()">
+아이디<input type="text" name="userId" id="userId">
+<!-- submit은 button과 다르게 서버에 폼정보를 전송할 때 사용한다. -->
+<input type="submit" value="전송">
+</form>
+<hr>
+<form action="FindServlet" onsubmit="return false">
+아이디<input type="text" name="userId" id="userId2">
+<input type="submit" value="전송">
+</form>
+</body>
+</html>

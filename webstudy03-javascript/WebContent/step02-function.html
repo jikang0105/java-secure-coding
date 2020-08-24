@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript function</title>
+<script type="text/javascript">
+	function hello(){
+		console.log("hello");
+		alert("hello");
+	}
+	function bye(name){
+		alert(name);
+	}
+	function testParam(name, age){
+		alert("이름 : " + name + " 나이  : " + age + " 리턴값 : " + testReturn());
+	}
+	// return value
+	function testReturn(){
+		return "쉬는 시간";
+	}
+</script>
+</head>
+<body>
+<input type="button" value = "함수테스트1" onclick="hello()">
+<br>
+<br>
+<input type = "button" value = "함수테스트2" onclick = "bye('옹성우')">
+<br>
+<br>
+<input type = "button" value = "함수테스트3" onclick = "bye('강하늘')">
+<br>
+<br>
+<input type = "button" value = "함수테스트4" onclick = "testParam('옹성우', 25)">
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript confirm</title>
+<script type="text/javascript">
+	function enterHome(){
+		var result = confirm("당신은 성인인가요?");
+		if(result){
+			location.href = "http://pororopark.com";
+		} else {
+			alert("성인만 입장 가능합니다.");
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="성인사이트 입장하기" onclick="enterHome()">
+	<!-- 
+		위 버튼을 클릭하면 confirm 함수로 '당신은 성인인가요?'
+		확인을 누르면 http://pororopark.com으로 이동
+		취소를 누르면 성인만 입장 가능합니다로 표현한다.
+	 -->
+</body>
+</html>

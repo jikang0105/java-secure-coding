@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript form text</title>
+<script type="text/javascript">
+	function moveTxt(){
+		var idComp = document.exForm.orgTxt;
+		var idComp2 = document.exForm.destTxt;
+				
+		idComp2.value = idComp.value;
+		idComp.value = "";
+		idComp2.focus();
+				
+	}		
+</script>
+</head>
+<body>
+	<form name="exForm">
+		<input type="text" name="orgTxt">
+		<input type="button" value="이동" onclick="moveTxt()">
+		<input type="text" name="destTxt">
+	</form>
+<!-- 
+	orgTxt에 사용자가 정보를 입력하고 이동버튼을 누르면
+	destTxt에 정보가 이동되도록 javascript moveTxt() function을 구현해본다
+	이동 후 orgTxt의 입력양식에는 정보가 지워지고 포커스가 주어지도록한다.
+ -->
+</body>
+</html>

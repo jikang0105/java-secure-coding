@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>step12-checkbox</title>
+<script type="text/javascript">
+	function orderMenu(){
+		// 선택한 메뉴 항목에 대해 alert을 띄운다.
+		// document.getElementsByname()을 이용한다.
+		// for loop
+		// if -> checked : true or false
+		var orderCompArray = document.getElementsByName("menu");
+		for(var i = 0; i < orderCompArray.length; i++){
+			if(orderCompArray[i].checked){
+				alert(orderCompArray[i].value);
+			}
+		}
+		resetcheck();
+	}
+	
+	function resetcheck(){
+		// 주문 완료후 폼을 초기화한다.
+		document.getElementById("menuForm").reset();
+	}
+</script>
+</head>
+<body>
+<form id="menuForm">
+<input type="checkbox" name="menu" value="전어">전어<br>
+<input type="checkbox" name="menu" value="광어">광어<br>
+<input type="checkbox" name="menu" value="참치">참치<br>
+<input type="button" value="주문" onclick="orderMenu()">
+</form>
+</body>
+</html>

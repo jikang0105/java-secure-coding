@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>step11-array</title>
+<script type="text/javascript">
+	function testArray1(){
+		var arr = new Array(3);
+		arr[0] = "메시";
+		arr[1] = "네이마르";
+		arr[2] = "송종국";
+		for(var i = 0; i < arr.length; i++){
+			alert(arr[i]);
+		}
+	}
+	function testArray2(){
+		var foodCompArray = document.foodForm.food;
+		//alert(foodCompArray.length);
+		// alert(foodCompArray[0].value);
+		// for loop를 이용해 value를 모두 alert으로 처리한다.
+		for(var i = 0; i < foodCompArray.length; i++){
+			alert(foodCompArray[i].value);
+		}
+	}
+	function testArray3(){
+		var foodCompArray = document.getElementsByName("food");
+		//alert(foodCompArray.length); // 체크박스가 3개 이므로 3을 출력한다.
+		// checkbox에는 checked라는 속성이 있고 체크 상태를 true false로 반환한다.
+		// 첫번째 체크박스의 체크 상태를 확인한다.
+		alert(foodCompArray[0].checked); // 사용자가 체크하면 true를 반환하고 , 체크하지 않으면 false를 반환한다.
+		foodCompArray[2].checked = true;
+	}
+</script>
+</head>
+<body>
+<input type="button" value="array테스트1" onclick="testArray1()">
+<hr>
+<form name="foodForm">
+<input type="checkbox" name="food" value="맥주">맥주<br>
+<input type="checkbox" name="food" value="와인">와인<br>
+<input type="checkbox" name="food" value="청주">청주<br>
+<input type="button" value="확인" onclick="testArray2()">
+<input type="button" value="checked속성확인" onclick="testArray3()">
+</form>
+</body>
+</html>

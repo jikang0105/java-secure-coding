@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript div span 제어</title>
+<style type="text/css">
+/*
+	#은 id를 지정할때 사용하며, .은 class를 지정할 때 사용한다.
+*/
+	#testDiv{
+		background-color: orange;	
+	}
+	#testSpan{
+		background-color: lime;
+	}
+</style>
+<script type="text/javascript">
+	/*
+		form 입력양식의 정보를 set/get하는 attribute -> value
+		div, span 영역의 정보를 set/get하는 attribute -> innerHTML
+	*/
+	function goDiv(){
+		var testDivComp=document.getElementById("testDiv");
+		alert(testDivComp.innerHTML); //div 영역내 html을 get한다.
+		testDivComp.innerHTML="<font color='blue' size='6'>하하하</font>"; // div영역 내 html을 할당한다.
+	}
+	function goSpan(){
+		// id가 testSpan인 영역의 html 정보를 alert으로 확인하고
+		// <font size='3' color='yellow'>쉬는 시간</font> html을 할당해본다.
+		var testSpanComp=document.getElementById("testSpan");
+		alert(testSpanComp.innerHTML);
+		testSpanComp.innerHTML="<font color='yellow' size='3'>쉬는 시간</font>"
+		}
+</script>
+</head>
+<body>
+	<div id="testDiv"><font color="red">이 부분은 div영역입니다.</font></div>
+	<span id="testSpan">이 부분은 span 영역입니다.</span>
+	<span>이 부분은 id가 지정되지 않은 span영역입니다.</span>
+	<br><br>
+	<input type="button" value="testDiv" onclick="goDiv()">
+	<input type="button" value="testSpan" onclick="goSpan()">
+</body>
+</html>

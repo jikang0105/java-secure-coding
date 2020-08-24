@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript confirm</title>
+<script type="text/javascript">
+	function confirmTest(){
+		//alert("실행");
+		// confirm 함수는 boolean 즉 true, false로 리턴한다
+		var result = confirm("컨펌 테스트");
+		//alert(result);
+		if(result){
+			alert("확인(true)");
+		} else {
+			//alert("취소(false)");
+			// 다른 페이지로 이동시킨다
+			location.href="http://naver.com";
+		}
+	}
+</script>
+</head>
+<body>
+<input type="button" value="테스트" onclick="confirmTest()">
+</body>
+</html>

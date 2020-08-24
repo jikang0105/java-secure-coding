@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javascript input 입력양식 id</title>
+<script type="text/javascript">
+	function testId(){
+		//alert("test");
+		// input 입력양식에 id로 접근해서 value를 확인한다.
+		// id는 현 웹페이지에서 유일해야한다.
+		var nickComp=document.getElementById("nick");
+		alert(nickComp.value); // get value
+		nickComp.value = "변경"; // set value
+	}
+</script>
+</head>
+<body>
+	<form>
+		닉네임<input type="text" value="기본" id="nick">
+		<input type="button" value="테스트" onclick="testId()">
+	</form>
+</body>
+</html>

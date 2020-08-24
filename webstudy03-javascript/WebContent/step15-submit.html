@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>submit 연습</title>
+<script type="text/javascript">
+	function depositAction(){
+		var depositComp = document.getElementById("money");
+		var flag = false;		
+		if(depositComp.value.trim() ===""){
+			alert("금액을 입력하세요.");
+			depositComp.value = "";
+		} else if(isNaN(depositComp.value)) {
+			alert("아라비아 숫자로 입력해주세요.");
+			depositComp.value = "";
+		} else if(depositComp.value!==""){
+			flag = confirm("전송하시겠습니까?");
+		}
+		return flag;
+	}
+	
+</script>
+</head>
+<body>
+<form action="depositForm" onsubmit="return depositAction()">
+금액<input type="text" name="money" id="money">
+<input type="submit" value="입금하기">
+</form>
+<!-- 
+	입금하기 submit 버튼을 눌렀을때
+	금액 부분이 공란이면 '금액을 입력하세요.'라는 alert을 호출하고
+	금액이 공란이 아니지만 숫자가 아닐 경우 '숫자로 입력하세요'라는 alert을 호출하고
+	입력된 정보를 지워준다. 위 두 경우는 submit 시키지 않는다.
+	위 두 경우가 아닌 경우에는 전송을 시키되
+	confirm()을 이용해 확인을 누를 경우에만 전송 시킨다.
+	취소를 누르면 전송되지 않는다.  
+ -->
+</body>
+</html>
