@@ -1,0 +1,9 @@
+	**ServletContextListener**
+	웹 어플리케이션 LifeCycle event 발생시 실행되는 메서드를 가직 객체이다.
+	주요 메서드
+		1) contextInitialized(event)
+		  웹어플리케이션 시작시 한번 생성되는 ServletContext가 생성된 직후 호출되어 실행되는 메서드이다.
+		  : 해당 웹어플리케이션의 초기화 작업에 이용할 수 있다.
+		2) contextDestroyed(event)
+		 웹 어플리케이션 종료 직전 실행되는 메서드.
+		  : 해당 웹 어플리케이션 종료 전 수행해야 할 작업에 이용할 수 있다. ( 주로 backup 용도 )
