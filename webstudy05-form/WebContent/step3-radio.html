@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>radio</title>
+</head>
+<body>
+	<form method = "post" action = "RadioServlet">
+		<input type = "radio" name = "friend" value = "메시">메시<br>
+		<input type = "radio" name = "friend" value = "박지성">박지성<br>
+		<input type = "radio" name = "friend" value = "강호동">강호동<br>
+		<input type = "submit" value = "이상형선택">
+	</form>
+	<form method = "get" action = "SelectServlet">
+		<select name = "kind" required = "required">
+			<option>소주</option>
+			<option>맥주</option>
+			<option>양주</option>
+		</select>
+		<input type = "submit" value = "주문">
+	</form>
+</body>
+</html>

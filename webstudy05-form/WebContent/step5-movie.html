@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function checkNot(){
+		var checkComp = document.getElementsByName("movie");
+		var flag = false;
+		for(var i = 0; i < checkComp.length; i++){
+			if(checkComp[i].checked){
+				flag = true;
+				break;
+			}
+		}
+		if(flag === false){
+			alert("영화를 선택하세요.");
+		}
+		return flag;
+/*
+		if(checkComp[0].checked || checkComp[1].checked || checkComp[2].checked) {
+			return true;
+		} else {
+			alert("영화를 선택하세요.");
+			return false;
+		}
+*/		
+	}
+	
+	function changeAllState(){
+		var allCheckComp = document.getElementById("allCheck");
+		var checkComp = document.getElementsByName("movie");
+		
+		for(var i = 0; i < checksComp.length; i++){
+			checksComp[i].checked = allCheckComp.checked;
+		}
+/*		
+		if(checkComp.checked){
+			flag = true;
+			alert("전체선택하셨습니다.")
+			checksComp[0].checked = flag;
+			checksComp[1].checked = flag;
+			checksComp[2].checked = flag;
+		} else {
+			checksComp[0].checked = flag;
+			checksComp[1].checked = flag;
+			checksComp[2].checked = flag;
+		}
+*/
+	}
+</script>
+</head>
+<body>
+<!--	step1. 선택항목을 보여준다.
+			    선택한 영화 : 비밀의 숲, 케넷, 내부자들 
+
+	 	Step5.MovieServlet
+	 	String[] : getParameterValues(String name)
+	 	---------------------------------------------------
+	 	step2. 선택한 항목이 없으면 '영화를 선택하세요'를 출력하고 전송하지 않는다
+	 	---------------------------------------------------
+	 	step3. 전체 선택을 누르면 영화 전체가 선택되고 다시 누르면 전체가 해제된다
+ -->
+	<form id = "movieForm" action = "MovieServlet" method = "post" onsubmit = "return checkNot()">
+	<input type = "checkbox" id = "allCheck" onchange = "changeAllState()"> 전체 선택하기<br>
+	<input type = "checkbox" name = "movie" value = "비밀의 숲">비밀의 숲<br>
+	<input type = "checkbox" name = "movie" value = "케넷">케넷<br>
+	<input type = "checkbox" name = "movie" value = "내부자들">내부자들<br>
+	<input type = "submit" value = "선택">
+	</form>
+</body>
+</html>
