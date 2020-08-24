@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>webstudy04-servlet-basic</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>step1.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/h</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RequestResponseServlet</servlet-name>
+    <servlet-class>step2.RequestResponseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestResponseServlet</servlet-name>
+    <url-pattern>/rr</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PostServlet</servlet-name>
+    <servlet-class>step3.PostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostServlet</servlet-name>
+    <url-pattern>/PostServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>uNameNick</servlet-name>
+    <servlet-class>step4.ExamServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>uNameNick</servlet-name>
+    <url-pattern>/exam</url-pattern>
+  </servlet-mapping>
+</web-app>

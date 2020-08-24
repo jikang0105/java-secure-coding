@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>http get, post방식</title>
+</head>
+<body>
+<!-- method : 서버에 전송하는 방식을 명시한다
+	 action : 처리할 서버 프로그램 url(web.html에 명시)
+ -->
+<form method="get" action="h"><!-- method 명시하지 않으면 기본이 get -->
+	<input type="text" name="info">
+	<input type="submit" value="get방식요청">
+</form>
+<hr>
+<form method="post" action="h">
+	<input type="text" name="info">
+	<input type="submit" value="post방식요청">
+</form>
+</body>
+</html>

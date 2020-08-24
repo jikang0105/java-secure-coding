@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>request, response</title>
+</head>
+<body>
+<!-- action : 처리할 서버 프로그램 url (서버상에는 web.xml에 설정되어있다)
+	 method는 따로 기술하지 않으면 get 방식이 기본이다.
+	 http://ip:port/serverProgramUrl?name=value 형태로 전송한다.
+	 
+	 처리할 서버프로그램 : RequestResponseServlet -> url-pattern : rr (web.xml)
+	 			   doGet(request, response)
+ -->
+<form action = "rr">
+이름 <input type = "text" name = "userName">
+<input type = "submit" value = "서버로 전송">
+</form>
+<hr>
+<!-- 링크 방식으로 요청해본다. : get 방식으로 요청된다. -->
+<a href = "rr?userName=javaking">서블릿 실행</a>
+</body>
+</html>

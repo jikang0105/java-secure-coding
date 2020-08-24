@@ -1,0 +1,83 @@
+**Servlet 기초개념**
+
+	HTTP : HyperText Transfer Protocol
+		인터넷으로 통신하기 위한 규약
+		
+	WAS : Web Application Server
+		  Web Server + Web Container
+		  Web Server -> HTTP 프로토콜에 의거해서 HTML을 서비스하는 서버이다.
+		  Web Container -> Servlet/JSP(Spring Framework) 실행환경을 제공한다.
+		  
+	WAS 중 Apache Tomcat을 사용 :
+		- 환경설정
+		  1) tomcat/conf/server.xml 실행
+		1-1) port 수정(8080 -> 8888)	 (이유는 오라클 port가 8080이므로 충돌을 피하기 위해서)
+		1-2) URIEncoding = "utf-8" 추가 ( 이유는 http get 전송방식으로 전달는 데이터의 한글 처리를 위해서이다.)
+		  2) tomcat/conf/context.xml 실행
+		2-1) relaodable = "true" -> 코드 수정시 서버 재시작없이 다시 리로딩 되도록 설정한다.
+		
+	Servlet : java web programming의 기반 기술
+			  java class로 표현한다.
+			  Model2 Architecture(MVC Pattern )의 Controller 역할을 한다.
+			  (Spring Framework의 웹 기술인 SpringMVC의 FrontController인 DispatcherServlet도 서블릿이다.
+			  
+	JSP : Java Server Page 웹 페이지의 생산성을 위한 기술이다
+		  HTML 구조상에서 JSP Tag와 java code를 삽입한다.
+		  Web Container에 의해 서블릿으로 변경되어 실행된다.
+		  Model2 Architecture (MVC Pattern)의 View 역할을 한다.
+		  
+		  참고 ) MVC -> Model, View, Controller
+		  	  Model : java(DAO, Service, DTO or VO)
+		  	  View : jsp
+		  	  Controller :servlet 
+		  	  
+	web.xml : Deployment Descriptor
+			    배포		  기술서
+			  WEB-INF/ 아래에 위치하는 파일로서
+			    웹 어플리케이션의 설정 정보를 저장하는 곳이다.	
+			    
+	HTTP Request Method (요청방식)
+	1. get 방식 : 주로 정보 조회 용도로 사용한다. ( db sql dml : select ) -> 서버의 상태에 영향을 주지 않는다
+				html form tag에 별도의 method설정이 없으면 기본적으로 get방식이 설정된다.
+				<a href=""></a> 웹페이지 링크는 get방식으로 요청된다.
+				브라우저의 url상에서 입력한 정보가 노출된다.
+				(중요한 사용자 정보나 데이터량이 많은 정보는 부적합하다.)
+				get 방식의 한글처리는 server.xml 에서  URIEncodint="utf-8"로
+				설정하였으므로 별도의 한글처리는 필요하지 않다.
+				
+	2. post 방식 : 정보 전송 용도로 사용한다. (db sql dml : insert, delete, update ) -> 서버의 상태에 영향을 준다
+				브라우저 url에 정보가 노출되지 않는다.
+				사용자 정보나 데이터양이 많은 경우 적합하다.
+				http body 부분에 정보가 저장되므로 별도의 한글 처리가 필요하다.
+				
+	service 계열의 메서드
+	doGet() <------ html get방식의 요청에 반응하여 실행한다.
+	doPost() <----- html post방식의 요청에 반응하여 실행한다.
+	
+	service 계열의 매개변수
+	ex)
+	doGet(HttpServletRequest request, HttpServletResponse response){}
+	doPost(HttpServletRequest request, HttpServletResponse response){}
+	HttpServletRequest : 클라이언트이 요청 정보를 저장하는 객체
+	HttpServletResponse : 클라이언트에게 응답할 정보를 저장하는 객체
+	
+	
+	http error code
+	404 -> 처리할 프로그램이 없을때 발생하는 에러이다.
+	405 -> 요청 방식(get or post)에 대응하는 서버상의 구현 메서드가 없을 때 발생하는 에러
+				
+	HTTP Request, Response 메세지 구조
+	1. HTTP Request 
+		1) start line : HTTP Method(Get/Post ..), Request Target(처리할 서버프로그램 url)
+						HTTP 버전
+		2) headers : request 요청 상세 정보 , user-agent(현 브라우저 종류), content-type,
+					 content-length 등을 기술한다.
+		3) body : get 방식일때는 비어있고, post 방식일때는 정보 전송할 데이터가 기술되어있다.
+		
+	2. HTTP Response
+		1) status line : status code 응답 상태를 나타내는 코드( 200 정상수행, 404, 405, 500 error 등)			
+		2) headers : response 상세정보 , content-type(html, xml, image, audio, video ..)
+					 content-length, cookie configuration 등
+		3) body : 응답할 메세지 정보 (html, xml, json, file 등)	
+				
+				

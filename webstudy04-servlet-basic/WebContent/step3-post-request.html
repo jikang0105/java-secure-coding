@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>post 방식 요청</title>
+</head>
+<body bgcolor = "yellow">
+	<!-- 
+		서버 프로그램은 step3.PostServlet이고 web.xml(DD)에 url-pattern이 PostServlet으로 설정한다.
+	 -->
+	<form method = "post" action = "PostServlet">
+		<input type = "text" name = "message">
+		<input type = "submit" value = "메세지 전송">
+	</form>
+</body>
+</html>
