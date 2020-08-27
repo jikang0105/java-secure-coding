@@ -1,0 +1,31 @@
+**어노테이션 기반 설정**
+
+	서블릿 3.0 이상에서 지원하는 기술
+	
+	 @WebServlet(url-pattern) -> 서블릿 클래스 상단부에 명시하면
+	 기존 web.xml 의 url-pattern 설정과 동일한 효과를 가진다.
+	 
+	 어노테이션 기반 설정은 개발의 생산성을 위해 지원한다.
+	 
+	 전역적인 설정 ( 예 - ServletContext의 context-param or session config 등)은
+	 web.xml에서 하고 개별 서블릿에 관련된 설정은 어노테이션 설정을 권장한다.
+	 
+	 
+**웹컨테이너(서블릿 컨테이너)**
+	WAS (Web Application Server) -> Web Server + Web Container
+	
+	Web Container : 서블릿, jsp 실행환경을 제공한다.
+					서블릿, jsp 라이브러리를 제공한다.
+					서블릿 라이프사이클을 관리한다.
+					jsp를 서블릿으로 생성한다.
+					ServletContext(공유자원)와 SerletConfig를 생성한다.
+					
+	step2.FindMemberCountServlet을 최초로 실행할 때 웨번테이너 동작은 다음과 같다.
+	1. Web Container는 자신의 절정 정보인 web.xml과 @WebServlet 어노테이션 정보를 로딩한다.
+	2. ServletContext를 생성 ( context-param 정보도 함께 할당한다 )
+	3. ServletContextListener를 implements 한 클래스(TestListener)가 있으면 contextInitalized()를 실행한다.
+		-> 이 때 시스템에서 한번만 수행하면 되는 db driver loading을 실행시킨다.
+	4. FindMemberCountServlet의 객체 생성 -> init(ServletConfig) -> service() 계열 메서드 (doGet() or doPost()) 실행
+	
+
+
