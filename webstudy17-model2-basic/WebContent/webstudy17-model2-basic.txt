@@ -1,0 +1,10 @@
+** Model2 Basic **
+
+	Model2 설계방식(Architecture)의 주요 디자인 패턴은 MVC Design Pattern이다.
+	webstudy15에서 기본 model2 mvc를 적용해보았다.
+	추가적으로 
+	Singleton Pattern은 Model 계층의 DAO에 적용시켜 불필요하게 객체를 다수 생성하는 것을 방지하고,
+	class로딩시 단 한번 객체를 생성해서 여러 컨트롤러에서 사용하도록 했다.
+	
+	webstudy17은 어제까지 공부했던 Model2 설계방식에 MVC와 Singleton을 간단히 복습하고,
+	여기에 추가해서 FrontController Design Pattern을 Webstudy18에서 적용해볼 예정이다.
