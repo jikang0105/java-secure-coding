@@ -1,0 +1,31 @@
+** Model2 Basic **
+
+	Model2 설계방식(Architecture)의 주요 디자인 패턴은 MVC Design Pattern이다.
+	webstudy15에서 기본 model2 mvc를 적용해보았다.
+	추가적으로 
+	Singleton Pattern은 Model 계층의 DAO에 적용시켜 불필요하게 객체를 다수 생성하는 것을 방지하고,
+	class로딩시 단 한번 객체를 생성해서 여러 컨트롤러에서 사용하도록 했다.
+	
+	webstudy17은 어제까지 공부했던 Model2 설계방식에 MVC와 Singleton을 간단히 복습하고,
+	여기에 추가해서 FrontController Design Pattern을 Webstudy18에서 적용해볼 예정이다.
+	
+** Front Controller Pattern **
+	
+	기존 Model2 Architecture(MVC + Singleton )에 FrontController Pattern을 추가 적용해본다.
+	
+	Front Controller Pattern
+	: 모든 클라이언트의 다양한 요청을 하나의 진입점으로 집중시켜 일괄적으로 처리하기 위한 디자인 패턴.
+	사용자 요청 정보 수집 및 분석, 예외처리, 보안( 인증 및 인가 ), 마케팅 적용 정책 등을 일관성 있게 처리할 수 있다.
+	(콜센터와 비슷한 역할을 한다.)
+	
+	기존 구조
+				Controller 영역				Model 영역
+	client ---> FindCarServlet		<--->
+				RegisterCarServlet
+				...
+				
+	FrontController Pattern 적용후 ( 서블릿은 FrontController인 DispatcherServlet 하나만 정의한다. )
+	
+				Controller 영역				Model 영역
+	client ---> DispatcherServlet	<--->
+				
