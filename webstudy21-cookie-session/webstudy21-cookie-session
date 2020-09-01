@@ -1,0 +1,91 @@
+**세션 관리**
+	HTTP의 특성 : Stateless (상태정보를 유지하지 않는다)
+	세션 관리의 목적 : 사용자 정보를 일정 조건동안 유지한다.
+	
+	Cookie : 클라이언트 측(브라우저)에 사용자 상태 정보를 저장한다.
+			  저장 용량의 제한 (4kb), 데이터 타입은 문자열로 한정한다.
+			  Cookie는 서버에서 response 시에 클라이언트로 전송하고
+			  Cookie 정보를 확인할 때는 request를 이용해 서버에서 확인한다.
+			  일반적으로 cookie는 유효시간을 설정한다.
+			  설정된 유효시간이 지나면 메모리에서 해제된다 ( 사용불가 )
+			  만약 유효시간을 설정하지 않으면 브라우저가 실행될때만
+			  정보가 유지된다.
+			  
+	client(browser) -- request --> SetCookieServlet
+								   Cookie 생성
+								   cookie.setMaxAge(30) 유효시간 설정
+								   response.addCookie(cookie) 클라이언트에 저장하 쿠키를 추가한다.
+	cookie가 저장	   <-- response -- response 즉, 응답시에 클라이언트에게 쿠키를 전달한다.
+	
+	client(browser) -- request --> GetCookieServlet
+								   request.getCookies()를 이용해 Cookie 배열을 반환한다
+								       쿠키가 존재하면 name에 따른 value를 화면에 출력한다.
+								       쿠키가 존재하지 않으면 (쿠키 유효시간이 만료) 쿠키가 없습니다 라는 메세지를 화면에 출력한다.
+			    
+	
+	HttpSession : 서버 측에 사용자 상태 정보를 저장한다. 저장하는 데이터 타입 및 용량에 제한이 없다.
+				  WAS에 세션 유지 기간이 별도로 설정되어있다. ( 참고 - Tomcat은 30분으로 설정되어있다. )
+				  
+				  tomcat\conf\web.xml
+				  <session-config>
+				  <session-timeout>30</session-timeout>
+				  </session-config>
+				    지정한 유효시간(30분) 내에 새로운 요청이 없을 때 세션이 만료된다.
+				    만약 웹 어플리케이션 별로 세션 유효시간을 별도로 설정하고자 한다면
+				    웹어플리케이션의 DD(Depolyment Descriptor)인 web.xml에 아래와 같이 설정하면 된다.
+				    아래는 1분간 세션이 유효하다.
+				  <session-config>
+				  <session-timeout>1</session-timeout>
+				  </session-config>
+				  
+				HttpSession 관련 주요 API
+				1. HttpServletRequest의 session 주요 메서드
+				request.getSession(): HttpSession -> 세션이 없으면 새로 생성한다. 있으면 기존 세션을 반환한다.
+				request.getSession(true)는 위와 동일하다.
+				request.getSession(false) : HttpSession -> 세션이 없으면 null을 반환한다, 있으면 기존 세션을 반환한다.
+				
+				2. HttpSession의 주요 메서드
+				HttpSession session = request.getSession();
+				session.setAttribute(name, value) -> 세션에 특정 정보를 공유한다
+				session.getAttribute(name) : Object -> 세션에 있는 특정 정보를 반환받는다
+				session.removeAttribute(name) : boolean -> 세션에 있는 특정 정보를 삭제한다.
+				session.invalidate() -> 세션을 무효화시킨다. ( ex -  로그아웃 )
+				
+	로그인 과정에서 세션처리
+								  WAS(Web Container)
+	client browser -- request --> if( 모델과 연동해 아이디 패스워드 일치하면 )
+								  HttpSession session = request.getSession();
+								    위 코드는 세션이 없으면 새로 생성하고 없으면 기존의 세션을 리턴한다.
+								  session.setAttribute(name,value) : 로그인 인증 정보(주로 회원객체)를 할당한다.
+								  WAS상에서는 클라이언트 에 대응하는 세션 객체가 생성되어있고 클라이언트에게 응답할 때 생성된 세션 객체의 고유아이디를 쿠키로 전송한다.
+				  <-- response --		  
+	
+	client browser -- request --> 로그인시 발급한 세션 아이디가 기록된 쿠키 정보가 있는지 확인한다.
+								  HttpSession session = request.getSession(false);
+								    위 코드는 기존 세션이 있으면 기존 세션 반환하고 없으면 null을 리턴한다.
+								    로그인한  사용자인지 확인은 위와 같이 세션의 유무와 로그인 처리시 할당한 인증정보가 있는지 함께 확인한다.
+								  session.getAttrivute(name) : Object
+								  
+							             결론적으로 로그인한 사용자인지를 판단하는 것은 세션이 존재하고 로그인시 할당한 attribute가 있는지를 확인하고
+								    인증정보가 있으면 로그인 했다고 처리한다.
+								    
+	** jsp 세션처리 **
+	JSP는 윀 컨테이너(or WAS or Servlet Container)에 의해 java class로 변환되어 생성된다.
+	tomcat\work 디렉토리에 생성된.java 와 .class를 확인할 수 있다. 
+	이렇게 생성된는 java code에는 _jspService() 메서드 내에 pageContext.getSession() 형태의 코드가 생성된다.
+	이를 통해 기존 세션이 없으면 새로 생성하고, 있으면 기존 세션을 반환하는 형식으로 동작된다.
+	JSP에서 세션이 생성되지 않도록 처리하기 위해서는 (권장사항) 지시자 테그에 <%@ session = "false" %>를 추가하면 된다.
+	이 설정을 통해 JSP의 _jspService 메서드 내에 생성되었던 pageContext.getSession()코드는 삽입되지 않으므로
+	자동으로 세션이 생성되는 것을 방지할 수 있다.
+	
+	별도의 설정 없이는 세션이 자동으로 생성되므로 로그인 여부의 판단은 세션 유무와 함께 로그인 처리시 세션에 할당한( session.setAttrivute(name, value) )
+	인증정보를 함께 비교해서 세션이 존재하고 세션 내에 인증정보가 있으면 로그인한 사용자로 인식하면 된다.
+	
+	 
+	있
+				  
+				  
+				  
+				  
+				  
+				
