@@ -16,6 +16,12 @@ public class HandlerMapping {
 			controller = new LoginController();
 		} else if(command.contentEquals("logout")) {
 			controller = new LogoutController();
+		} else if(command.contentEquals("updateMember")) {
+			controller = new UpdateMemberController();
+		} else if(command.contentEquals("joinmember")) {
+			controller = new JoinMemberController();
+		} else if(command.contentEquals("checkid")) {
+			controller = new CheckIdController();
 		}
 		return controller;
 	}

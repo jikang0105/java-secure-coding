@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인폼</title>
-<link re="stylesheet" type="text.css" href="css/mystyle.css">
+<link rel="stylesheet" type="text.css" href="css/mystyle.css">
 </head>
 <body>
 <div class="container">

@@ -5,27 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="css/mystyle.css">
 </head>
 <body>
 <div class="container">
-<a href="index.jsp">Home</a>
+<a href="index.jsp">Home</a><br>
 <hr>
-<h3>Model2 회원관리</h3>
-<a href="findmemberbyid.jsp">회원검색</a><br>
 <%
 	HttpSession session = request.getSession(false);
 	if(session != null && session.getAttribute("vo") != null){
 		MemberVO vo = (MemberVO)session.getAttribute("vo");
+		//if(vo != null){
 %>
-<%= vo.getAddress() %>에 사는 <%= vo.getName() %>님 로그인상태입니다.<br>
-<a href = "front?command=logout">로그아웃</a><br>
-<a href = "update-form.jsp">회원정보수정</a><br>
-
-<% } else { %>
-<a href="joinmember-form.jsp">회원가입</a><br>
-<a href="login.jsp">로그인</a><br>
+	회원정보 수정되었습니다.
+	아이디 : <%= vo.getId() %><br>
+	패스워드 : <%= vo.getPassword() %><br>
+	이름 : <%= vo.getName() %><br>
+	주소 : <%= vo.getAddress() %><br>
+<%	
+		// }
+	} else {
+%>
+<script type="text/javascript">
+	alert("로그인하세요");
+	location.href="login.jsp";
+</script>
 <% } %>
 </div>
 </body>

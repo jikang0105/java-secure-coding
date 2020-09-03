@@ -73,11 +73,63 @@ public class MemberDAO {
 			if(rs.next()) {
 				String name = rs.getString(1);
 				String address = rs.getString(2);
-				vo = new MemberVO(id, null, name, address);
+				vo = new MemberVO(id, pass, name, address);
 			}
 			return vo;
 		} finally {
 			closeAll(rs, pstmt, con);
 		}
+	}
+	public void updateMember(MemberVO vo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = DriverManager.getConnection(url, username, userpass);
+			String sql = "UPDATE web_member SET password=?, name=?, address=? WHERE id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getPassword());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getAddress());
+			pstmt.setString(4, vo.getId());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
+		}
+		
+	}
+	public void joinMember(MemberVO vo) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = DriverManager.getConnection(url, username, userpass);
+			String sql = "INSERT INTO web_member (id, password, name, address) VALUES (?, ?, ?, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPassword());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getAddress());
+			pstmt.executeUpdate();
+		} finally {
+			closeAll(pstmt, con);
+		}
+	}
+	public boolean checkId(String id) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean flag = false;
+		try {
+			con = DriverManager.getConnection(url, username, userpass);
+			String sql = "SELECT COUNT(*) FROM web_member WHERE id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()&&rs.getInt(1) > 0) {
+				flag = true;
+			}
+		} finally {
+			closeAll(rs, pstmt, con);
+		}
+		return flag;
 	}
 }
