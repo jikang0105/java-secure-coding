@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>시스템 점검중</title>
+<title>예외페이지</title>
 </head>
-<!--<body background = "error.jpg">-->
+<body>
 <marquee>
-ERROR
-<br><br>
-<img src = "error.jpg">
+시스템 에러가 발생했습니다. 콘솔을 확인하세요! <br><br>
+<img src="error.jpg">
 </marquee>
 </body>
 </html>

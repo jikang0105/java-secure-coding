@@ -11,21 +11,33 @@ public class LoginController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = request.getParameter("id");
-		String pass = request.getParameter("password");
-		MemberVO vo = MemberDAO.getInstance().login(id, pass);
-		// request.setAttribute("loginmember", vo);
-		String url = null;
-		if(vo == null) {
-			url = "redirect:login-fail.jsp";
-		} else {
-			url = "redirect:login-ok.jsp";
-			HttpSession session = request.getSession();
-			session.setAttribute("vo", vo);
-			//session.setAttribute("name", vo.getName());
-			//session.setAttribute("address", vo.getAddress());
+		String id=request.getParameter("id");
+		String password=request.getParameter("password");
+		String url=null;
+		MemberVO mvo=MemberDAO.getInstance().login(new MemberVO(id,password));
+		if(mvo==null)
+			url="redirect:login-fail.jsp";
+		else {//로그인 성공
+			url="redirect:login-ok.jsp";
+			HttpSession session=request.getSession();
+			session.setAttribute("mvo", mvo);
 		}
 		return url;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

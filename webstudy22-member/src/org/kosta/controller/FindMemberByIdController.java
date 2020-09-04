@@ -12,14 +12,12 @@ public class FindMemberByIdController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String id = request.getParameter("id");
 		MemberVO vo = MemberDAO.getInstance().findMemberById(id);
-		String url = null;
-		if(vo == null) {
-			url = "findmemberbyid-fail.jsp";
-		} else {
-			url = "findmemberbyid-ok.jsp";
-			request.setAttribute("member", vo);
+		if (vo == null)
+			return "findmemberbyid-fail.jsp";
+		else {
+			request.setAttribute("vo", vo);
+			return "findmemberbyid-ok.jsp";
 		}
-		return url;
 	}
 
 }

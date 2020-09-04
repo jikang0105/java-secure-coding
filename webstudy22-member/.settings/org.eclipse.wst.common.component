@@ -2,7 +2,7 @@
     <wb-module deploy-name="webstudy22-member">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="webstudy22-member"/>
         <property name="java-output-path" value="/webstudy22-member/build/classes"/>
+        <property name="context-root" value="webstudy22-member"/>
     </wb-module>
 </project-modules>

@@ -6,7 +6,7 @@ public class MemberVO {
 	private String name;
 	private String address;
 	public MemberVO() {
-		super();
+		super();	
 	}
 	public MemberVO(String id, String password) {
 		super();
@@ -48,4 +48,5 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", address=" + address + "]";
 	}
+	
 }

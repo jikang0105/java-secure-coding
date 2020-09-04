@@ -1,25 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" session="false"%>
+    pageEncoding="UTF-8" session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+<title>id 사용불가 팝업</title>
 <script type="text/javascript">
-		var of=window.opener.registerForm;
-		of.id.value="";
-		of.flag.value="";
+	var of=window.opener.registerForm;
+	of.id.value="";
+	of.flag.value="";
 	function closePopup(){
-		of.id.focus;
+		of.id.focus();
 		self.close();
 	}
 </script>
 </head>
-<body bgcolor="lightgray" onunload="closePopup()">
-<div class="container">
-<%= request.getParameter("id") %>에 중복되는 아이디가 존재합니다.
+<body bgcolor="orange" onunload="closePopup()">
+<%=request.getParameter("id")%>아이디는 사용불가 <br><br>
 <input type="button" value="확인" onclick="closePopup()">
-</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
