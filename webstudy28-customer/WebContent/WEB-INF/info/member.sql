@@ -1,0 +1,14 @@
+CREATE TABLE member_25(
+	id VARCHAR2(100) PRIMARY KEY,
+	password VARCHAR2(100) NOT NULL,
+	name VARCHAR2(100) NOT NULL,
+	address VARCHAR2(100) NOT NULL,
+	birth DATE NOT NULL,
+	jointime DATE NOT NULL
+);
+
+SELECT * FROM member_25;
+
+SELECT COUNT(*) FROM member_25
+
+DROP TABLE member_25;
