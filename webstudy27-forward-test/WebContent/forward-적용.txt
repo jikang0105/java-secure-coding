@@ -1,0 +1,11 @@
+**forward 적용**
+	현재 프로젝트(웹어플리케이션)에서
+	jsp forward 액션 태그를 이용해 첫 화면이 데이터베이스를 연동한 정보를 제공하는 화면으로
+	제공되도록 처리하는 예제
+	
+	car-list.jap 가 차 리스트를 제공하므로 index.jsp에서 jsp forward action tag를 명시하고
+	프로젝트에서 실행시 바로 front controller인 DispatcherServlet이 동작되어 car-list.jsp화면이 응답되도록 처리해본다.
+	
+	index.jsp(홈) : forward 적용 --> front(DispatcherServlet) <-> HandlerMapping <-> GetAllCarListController <-> CarDAO <-> DB
+												|
+												car-list.jsp로 응답한다.
