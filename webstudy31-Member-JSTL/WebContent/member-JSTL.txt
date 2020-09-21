@@ -1,0 +1,13 @@
+** 회원 관리 (EL과 JSTL 적용) **	
+	1. 회원 검색
+	
+	index.jsp -- command=findMemberById -- DispatcherServlet -- HanderMapping -- FindMemberByIdController -- MemberDAO의 findMemberById(id):MemebrVO -- DataSourceManager -- Database
+	
+	findMemberById-ok.jsp(검색 회원 정보를 제공 )
+	findMemberById-fail.jsp(javascript로 아이디 (....) 에 대한 회원 정보가 없습니다. alert 후 index로 이동한다.
+	
+	2. 주소 종류를 제공한다
+	
+	index.jsp -- command=getAddressKind -- GetAddressKindController -- MemberDAO의 getAddressKind()
+	
+	address-list.jsp ( select option으로 주소 종류를 제공 : JSTL)
