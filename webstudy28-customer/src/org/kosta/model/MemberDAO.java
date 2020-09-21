@@ -53,11 +53,11 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "INSERT INTO member_25(id, password, name, address, birth, jointime) VALUES(?, ?, ?, ?, ? ,sysdate)";
+			String sql = "INSERT INTO member_25(id, password, name, address, TO_CHAR(birth, 'YYYY/MM/DD'), jointime) VALUES(?, ?, ?, ?, ? ,sysdate)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mvo.getId());
 			pstmt.setString(2, mvo.getPassword());
-			pstmt.setString(3, mvo.getAddress());
+			pstmt.setString(3, mvo.getName());
 			pstmt.setString(4, mvo.getAddress());
 			pstmt.setString(5, mvo.getBirth());
 			pstmt.executeUpdate();
@@ -91,7 +91,7 @@ public class MemberDAO {
 		MemberVO vo = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "SELECT name, address, TO_CHAR(birth, 'YYYY/MM/DD'), jointime FROM member_25 WHERE id=? AND password=?";
+			String sql = "SELECT name, address, birth, jointime FROM member_25 WHERE id=? AND password=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mvo.getId());
 			pstmt.setString(2, mvo.getPassword());

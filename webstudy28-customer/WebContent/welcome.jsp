@@ -1,4 +1,4 @@
-<%@page import="org.kosta.model.MemberVO"%>
+<%@page import="org.kosta.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -25,13 +25,13 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div class="content">
 	<div class="col-sm-8">
-	가입 회원수 : <%= request.getAttribute("count") %> 명
+	가입 회원수 : <%=request.getAttribute("count")%> 명
 	</div>
 	<div class="col-sm-4">
 <%
 	HttpSession session	 = request.getSession(false);
 	if(session != null && session.getAttribute("mvo")!= null){
-		MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+		MemberDTO mvo = (MemberDTO)session.getAttribute("mvo");
 %>
 	<%=  mvo.getName() %>님 로그인 상태입니다.
 	<a href="info.jsp">회원정보조회</a><br>

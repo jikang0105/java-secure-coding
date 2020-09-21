@@ -1,4 +1,4 @@
-<%@page import="org.kosta.model.MemberVO"%>
+<%@page import="org.kosta.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
@@ -19,17 +19,21 @@
 		color: white;
 		padding: 15px;
 	}
+	.checkPass{
+		display: none;
+	}
 	</style>
+	
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="content">
 <%
 	HttpSession session = request.getSession(false);
-	MemberVO mvo = (MemberVO)session.getAttribute("mvo");
+	MemberDTO mvo = (MemberDTO)session.getAttribute("mvo");
 %>
 아이디 : <%= mvo.getId() %><br>
-비밀번호 : ***************<br>
+비밀번호 : *************** <br>
 이름 : <%= mvo.getName() %><br>
 주소 : <%= mvo.getAddress() %><br>
 생일 : <%= mvo.getBirth() %><br>
