@@ -1,0 +1,7 @@
+**경로**
+	client 측에 도달되는 html, css, javascript 는 '/'를 명시할 경우 port 다음으로 정보를 찾게된다.
+	server 측에서 실행되는 forward, include ( or jstl import) 는 / 를 명시할 경우
+	자신의 웹컨텍스트(웹어플리케이션 명) 다음에서 정보를 찾게된다.
+	
+	html, javascript, css 는 ${pageContext.request.contextPath}/를 명시해서
+	웹 어플리케이션 아래에서 정보를 찾게하면 된다.
