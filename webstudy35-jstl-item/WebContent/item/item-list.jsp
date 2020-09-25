@@ -14,7 +14,7 @@
     <c:forEach items="${requestScope.list }" var="list">
       <tr>
         <td>${list.itemNo}</td>
-        <td><a href="${pageContext.request.contextPath }/front?command=itemDetail&name=${list.name }">${list.name }</a></td>
+        <td><a href="${pageContext.request.contextPath }/front?command=itemDetail&itemNo=${list.itemNo }">${list.name }</a></td>
         <td>${list.maker }</td>
       </tr>
     </c:forEach>

@@ -15,12 +15,12 @@ public class LoginController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		MemberDTO vo = MemberDAO.getInstance().login(new MemberDTO(id, password, null, null));
-		if(vo == null) {
+		MemberDTO dto = MemberDAO.getInstance().login(new MemberDTO(id, password, null, null));
+		if(dto == null) {
 			return "/member/login-fail.jsp";
 		} else {
 			HttpSession session = request.getSession();
-			session.setAttribute("mvo", vo);
+			session.setAttribute("memberDTO", dto);
 			//request.setAttribute("url", "/member/login-ok.jsp");
 			//return "/template/login-layout.jsp";
 			return "redirect:front?command=home";

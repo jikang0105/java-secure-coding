@@ -49,16 +49,16 @@ public class ItemDAO {
 		}
 		return list;
 	}
-	public ItemDTO itemDetail(String name) throws SQLException {
+	public ItemDTO findItemByNo(String itemNo) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ItemDTO idto = null;
 		try {
 			con = dataSource.getConnection();
-			String sql = "SELECT item_no, name, maker, price, detail FROM item WHERE name=?";
+			String sql = "SELECT item_no, name, maker, price, detail FROM item WHERE item_no=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, name);
+			pstmt.setString(1, itemNo);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				idto = new ItemDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
@@ -67,5 +67,21 @@ public class ItemDAO {
 			closeAll(rs, pstmt, con);
 		}
 		return idto;
+	}
+	public void registerItem(ItemDTO itemDTO) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = dataSource.getConnection();
+			String sql = "INSERT INTO item(item_no, name, maker, price, detail) VALUES(item_seq.nextval, ?, ?, ?, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, itemDTO.getName());
+			pstmt.setString(2, itemDTO.getMaker());
+			pstmt.setInt(3, itemDTO.getPrice());
+			pstmt.setString(4, itemDTO.getDetail());
+			pstmt.executeQuery();			
+		} finally {
+			closeAll(pstmt, con);
+		}		
 	}
 }

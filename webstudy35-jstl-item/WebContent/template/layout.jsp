@@ -28,8 +28,36 @@
 				<c:import url="${requestScope.url}"></c:import>
 			</div>
 			<div class="col-sm-4">
-				<%-- ${sessionScope.mvo.name }님 로그인<br>
-				<a href="${pageContext.request.contextPath}/front?command=logout">로그아웃</a><br> --%>
+			<%-- 
+						로그인하면 아래 로그인폼은 보여주지 않고 '...님 로그인'과 그 아래에 로그아웃을 보여준다.
+						로그인 상태가 아니면 로그인폼을 보여준다
+						JSTL의 choose when otherwise를 이용해 구현해본다.
+			 --%>
+			<c:choose>
+				<c:when test="${sessionScope.memberDTO == null }">
+					<form method="post" action="${pageContext.request.contextPath}/front">
+						<input type="hidden" name="command" value="login">
+						<table>
+							<tr>
+								<td>아이디</td>
+								<td><input type="text" name="id" required="required"></td>
+							</tr>
+							<tr>
+								<td>패스워드</td>
+								<td><input type="password" name="password" required="required"></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="right"><input type="submit" value="로그인"></td>
+							</tr>
+						</table>
+					</form>
+				</c:when>
+				<c:otherwise>			
+					${sessionScope.memberDTO.name }님<br>
+					<a href="${pageContext.request.contextPath}/front?command=logout">로그아웃</a><br>
+					<a href="${pageContext.request.contextPath}/front?command=registerItemForm">상품등록</a>
+				</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div class="row footer">
